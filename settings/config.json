@@ -1,0 +1,14 @@
+{
+    "bot": {
+        "token": "MTAwNjQyMzM0MjQwMTczMjY5MQ.GSTUcl.G54sh8CTxd-TJHCb2MFstLMQfdXDDsE2h3-qxU",
+        "prefix": "tbl!",
+        "clientID": "1006423342401732691"
+    },
+    "database": {
+        "mongo": "mongodb://mongo:djwYu8pJawOLL9bKgJDy@containers-us-west-45.railway.app:6088"
+    }, 
+    "staff": [
+        "852521383006961687", 
+        "787241442770419722"
+    ]
+}
