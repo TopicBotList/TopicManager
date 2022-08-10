@@ -5,7 +5,7 @@
         "clientID": "1006423342401732691"
     },
     "database": {
-        "mongo": "mongodb://mongo:djwYu8pJawOLL9bKgJDy@containers-us-west-45.railway.app:6088"
+        "mongo": "mongodb+srv://rlx:rlx@rlx2.yulr9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
     }, 
     "staff": [
         "852521383006961687", 
