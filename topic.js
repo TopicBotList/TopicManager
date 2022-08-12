@@ -41,13 +41,16 @@ client.aliases = new Collection();
 client.cooldowns = new Collection();
 
 client.config = require("./settings/config.json");
+client.rolesList = require("./settings/roles.json");
+client.channelsList = require("./settings/channels.json");
 client.database = require("./database");
 client.logger = require("./functions/logger");
 client.errors = require("./functions/errors");
 
 let date = new Date();
 client.footer = `\u00a9 ${date.getFullYear()} • TopicBotList`
-client.logo = ``
+client.logo = `https://i.imgur.com/aR4zQ34.png`
+client.banner = `https://i.imgur.com/r4VLX29.png`
 client.color = `#0000FF`
 
 const eventHandler = require('./functions/handlers');

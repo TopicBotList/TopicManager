@@ -30,7 +30,7 @@ module.exports = {
             .setDescription(
                 `>>> My prefix is \`${client.config.bot.prefix}\`\n Use the menu to view a list of commands based on their category!`,
             )
-            .setTimestamp()
+            .setImage(client.banner)
             .setFooter({
                 text: client.footer
             });

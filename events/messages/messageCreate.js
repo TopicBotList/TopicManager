@@ -1,8 +1,9 @@
 const {
-    EmbedBuilder
+    EmbedBuilder,
+    Colors
 } = require('discord.js');
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message) => {
     try {
         if (message.author.bot) return;
         if (!message.guild) return;
@@ -50,7 +51,7 @@ module.exports.run = async (client, message, args) => {
             if (command.help.disabled === true) {
                 const disabledCmds = new EmbedBuilder()
                     .setDescription(`${command.help.name} is currently disabled.`)
-                    .setColor("RED")
+                    .setColor(Colors.Red)
                     .setFooter({
                         text: client.footer
                     });
@@ -65,7 +66,7 @@ module.exports.run = async (client, message, args) => {
                     reply += `\nUsage: \`${prefix}${command.help.name} ${command.help.usage}\``;
                 }
                 noArgs.setDescription(reply)
-                    .setColor("RED")
+                .setColor(Colors.Red)
                     .setFooter({
                         text: client.footer
                     });
@@ -74,14 +75,36 @@ module.exports.run = async (client, message, args) => {
                 });
             }
             if (command.help.permissions && !message.member.permissions.has(command.help.permissions || [])) {
-                const disabledCmds = new MessageEmbed()
+                const disabledCmds = new EmbedBuilder()
                     .setDescription(`You need \`${command.help.permissions.join(', ')}\` permissions to execute ${command.help.name}.`)
-                    .setColor("RED")
+                    .setColor(Colors.Red)
                     .setFooter({
                         text: client.footer
                     });
                 return message.reply({
                     embeds: [disabledCmds]
+                });
+            }
+            if (command.help.admins === true && !client.config.admins.includes(message.author.id)) {
+                const notAdmin = new EmbedBuilder()
+                    .setDescription(`${command.help.name} is limited to admins only.`)
+                    .setColor(Colors.Red)
+                    .setFooter({
+                        text: client.footer
+                    });
+                return message.reply({
+                    embeds: [notAdmin]
+                });
+            }
+            if (command.help.staff === true && !client.config.staff.includes(message.author.id)) {
+                const notAdmin = new EmbedBuilder()
+                    .setDescription(`${command.help.name} is limited to staff only.`)
+                    .setColor(Colors.Red)
+                    .setFooter({
+                        text: client.footer
+                    });
+                return message.reply({
+                    embeds: [notAdmin]
                 });
             }
             if (!client.config.staff.includes(message.author.id)) {
@@ -100,7 +123,7 @@ module.exports.run = async (client, message, args) => {
                     if (now < expirationTime && timeLeft > 0.9) {
                         const cooldown = new EmbedBuilder()
                             .setDescription(`Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.help.name}\` command.`)
-                            .setColor(`RED`)
+                            .setColor(Colors.Red)
                             .setFooter({
                                 text: client.footer
                             })
@@ -113,7 +136,7 @@ module.exports.run = async (client, message, args) => {
                 }
             }
             try {
-                command.run(client, message);
+                command.run(client, message, args);
             } catch (err) {
                 console.error(error)
                 //await Console.sendLogs(`${err.stack}`, 'error');
