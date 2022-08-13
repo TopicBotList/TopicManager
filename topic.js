@@ -49,7 +49,7 @@ client.errors = require("./functions/errors");
 
 let date = new Date();
 client.footer = `\u00a9 ${date.getFullYear()} • TopicBotList`
-client.logo = `https://i.imgur.com/aR4zQ34.png`
+client.logo = `https://i.imgur.com/D8Idxtb.png`
 client.banner = `https://i.imgur.com/r4VLX29.png`
 client.color = `#0000FF`
 

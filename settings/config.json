@@ -6,13 +6,17 @@
     },
     "database": {
         "mongo": "mongodb+srv://rlx:rlx@rlx2.yulr9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-    }, 
+    },
     "admins": [
-        "852521383006961687", 
+        "852521383006961687",
         "787241442770419722"
     ],
     "staff": [
-        "852521383006961687", 
+        "852521383006961687",
         "787241442770419722"
-    ]
+    ],
+    "guilds": {
+        "main": "847355486436065341",
+        "testing": ""
+    }
 }

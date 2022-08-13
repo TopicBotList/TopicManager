@@ -1,6 +1,7 @@
 const {
     EmbedBuilder,
-    Colors
+    Colors,
+    ApplicationCommandOptionType
 } = require('discord.js');
 
 module.exports = {
@@ -9,6 +10,18 @@ module.exports = {
     cooldown: "3",
     disabled: false,
     staff: true,
+    options: [{
+        name: "bot",
+        type: ApplicationCommandOptionType.String,
+        required: true,
+        description: "Please provide a bot.",
+    },
+    {
+        name: "reason",
+        type: ApplicationCommandOptionType.String,
+        required: false,
+        description: "Please provide a reason.",
+    }],
     run: async (client, interaction, args) => {
         const aboutUs = new EmbedBuilder()
             .setTitle('About Us')

@@ -31,6 +31,7 @@ module.exports = {
                 `>>> My prefix is \`${client.config.bot.prefix}\`\n Use the menu to view a list of commands based on their category!`,
             )
             .setImage(client.banner)
+            .setThumbnail(client.logo)
             .setFooter({
                 text: client.footer
             });

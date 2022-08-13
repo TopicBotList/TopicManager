@@ -1,6 +1,7 @@
 const {
     EmbedBuilder,
-    Colors
+    Colors,
+    ApplicationCommandOptionType
 } = require('discord.js');
 
 module.exports = {
@@ -8,16 +9,74 @@ module.exports = {
     description: "Sends a suggestion.",
     cooldown: "3",
     disabled: false,
+    options: [{
+        name: "suggestion",
+        type: ApplicationCommandOptionType.String,
+        required: true,
+        description: "Please provide a suggestion.",
+    }],
     run: async (client, interaction, args) => {
-        const aboutUs = new EmbedBuilder()
-            .setTitle('About Us')
-            .setDescription(`This is something to tell you about us..`)
-            .setColor(client.color)
-            .setFooter({
-                text: client.footer
+        let suggestion = interaction.options.getString("suggestion");
+        if (!suggestion) {
+            const notAdmin = new EmbedBuilder()
+                .setDescription(`Please provide a suggestion.`)
+                .setColor(Colors.Red)
+                .setFooter({
+                    text: client.footer
+                });
+            return interaction.reply({
+                embeds: [notAdmin]
             });
-        return interaction.reply({
-            embeds: [aboutUs]
-        });
+        }
+        let sugChannel = client.channels.cache.find((c) => c.id === "1007645618145071125");
+        if (!sugChannel) {
+            const notAdmin = new EmbedBuilder()
+                .setDescription(`Invaild suggestion channel, Please provide the correct channel id.`)
+                .setColor(Colors.Red)
+                .setFooter({
+                    text: client.footer
+                });
+            return interaction.reply({
+                embeds: [notAdmin]
+            });
+        }
+        if (sugChannel) {
+            const suggestionSubmitted = new EmbedBuilder()
+                .setAuthor({
+                    name: `Suggestion Submitted.`,
+                    iconURL: client.logo
+                })
+                .setDescription(`You're suggestion has been submitted.`)
+                .setColor(client.color)
+                .setTimestamp()
+                .setFooter({
+                    text: client.footer
+                });
+            interaction.reply({
+                embeds: [suggestionSubmitted]
+            });
+            //
+            const newSuggestion = new EmbedBuilder()
+                .setAuthor({
+                    name: `New Suggestion.`,
+                    iconURL: client.logo
+                })
+                .setDescription(`${suggestion}`)
+                .addFields({
+                    name: `Submitted By:`,
+                    value: `${interaction.member}`
+                })
+                .setColor(client.color)
+                .setTimestamp()
+                .setFooter({
+                    text: client.footer
+                });
+            return sugChannel.send({
+                embeds: [newSuggestion]
+            }).then(async (msg) => {
+                await msg.react('✅');
+                await msg.react('❌');
+            });;
+        }
     }
 }

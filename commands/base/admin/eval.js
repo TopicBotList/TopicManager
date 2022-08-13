@@ -17,9 +17,9 @@ module.exports = {
         admins: true,
         args: false,
         aliases: ['e'],
-        description: `Test`,
+        description: `Evaluate some Code.`,
         cooldown: '3',
-        usage: [``]
+        usage: [`<code>`]
     },
     async run(client, message, args) {
 

@@ -13,6 +13,7 @@ module.exports = {
             .setTitle('About Us')
             .setDescription(`This is something to tell you about us..`)
             .setColor(client.color)
+            .setThumbnail(client.logo)
             .setFooter({
                 text: client.footer
             });

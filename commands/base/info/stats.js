@@ -9,11 +9,17 @@ const {
 } = require('@discordjs/builders');
 
 module.exports = {
-    name: "stats",
-    description: "Display the bot stats.",
-    cooldown: "3",
-    disabled: false,
-    run: async (client, interaction, args) => {
+    help: {
+        name: "stats",
+        category: 'info',
+        disabled: false,
+        args: false,
+        aliases: ['bstats', 'botstats'],
+        description: `Display the bot stats.`,
+        cooldown: '3',
+        usage: [``]
+    },
+    async run(client, message, args) {
         const botvalue = (Date.now() / 1000 - client.uptime / 1000).toFixed(0);
         const aboutUs = new EmbedBuilder()
             .setTitle('TopicManager - Stats')
@@ -44,7 +50,7 @@ module.exports = {
             .setFooter({
                 text: client.footer
             });
-        return interaction.reply({
+        return message.reply({
             embeds: [aboutUs]
         });
     }
