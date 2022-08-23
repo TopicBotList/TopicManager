@@ -10,7 +10,7 @@ module.exports.run = async (client, member, args) => {
             if (!member.user.bot) {
                 const userJoin = new EmbedBuilder()
                     .setColor(client.color)
-                    .setTitle("__**New User Joined**__")
+                    .setTitle("__**User Joined**__")
                     .setDescription(`Welcome ${member.user.tag} to ${member.guild.name}. Please make sure you check out the <#${client.channelsList.rulesChannel}> and get some roles here <#${client.channelsList.rolesChannel}>!`)
                     .setThumbnail(member.user.displayAvatarURL())
                     .setFooter({
@@ -25,8 +25,8 @@ module.exports.run = async (client, member, args) => {
             if (member.user.bot) {
                 const botJoin = new EmbedBuilder()
                     .setColor(client.color)
-                    .setTitle("__**New Bot Joined**__")
-                    .setDescription(`${member.user.tag} has joined and is ready to be approved.`)
+                    .setTitle("__**Bot Joined**__")
+                    .setDescription(`${member.user.tag} has joined.`)
                     .setThumbnail(member.user.displayAvatarURL())
                     .setFooter({
                         text: client.footer
