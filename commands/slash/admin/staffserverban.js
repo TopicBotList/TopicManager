@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 const { Client, Intents } = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 const { MongoClient } = require('mongodb');
 
 const MONGODB_URI = 'mongodb+srv://Admin:RanveerSoni11@topic.q8qcpfz.mongodb.net';
