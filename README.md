@@ -8,3 +8,17 @@ Code For Topic Manager Bot.
 </p>
 
 <hr>
+
+## Getting Started
+
+#### Yarn Install
+- `yarn install`
+- `yarn dev`
+
+
+---
+
+## Env Setup
+- Rename `.env.template` to `.env`
+- Provide the required parameters
+- `devtoken` should be used while developing. Use `DISCORD_TOKEN` for prod.

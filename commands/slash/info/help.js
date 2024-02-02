@@ -21,6 +21,7 @@ module.exports = {
         usage: [``]
     },
     async run(client, message, args) {
+          try {
         const categories = readdirSync(`${__dirname}/../../../commands/slash`);
         let embed = new EmbedBuilder()
             .setAuthor({
@@ -47,6 +48,7 @@ module.exports = {
                 })
             }
         });
+        
         let btn = new ButtonBuilder()
             .setCustomId('home')
             .setLabel('Home')
@@ -95,5 +97,8 @@ module.exports = {
             });
         })
     }
-        
+    catch(e) {
+        // error logger here
+   }
+} 
     }
