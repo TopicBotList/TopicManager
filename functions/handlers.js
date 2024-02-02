@@ -19,28 +19,6 @@ const loadEvents = async function (client) {
 }
 
 /**
- * LOAD THE CLIENT COMMANDS
- */
-const loadCommands = async function (client) {
-    fs.readdirSync('./commands/base').forEach((dir) => {
-        const commandFiles = fs.readdirSync(`./commands/base/${dir}`).filter((f) => f.endsWith('.js'));
-        for (const file of commandFiles) {
-            const command = require(`../commands/base/${dir}/${file}`);
-            if (command) {
-                client.commands.set(command.help.name, command);
-                command.help.aliases.forEach(alias => {
-                    client.aliases.set(alias, command.help.name);
-                });
-                // Logger.sendLogs(
-                //     `Loading Command: ${command.help.name} from Category: ${command.help.category} with Aliases: ${command.help.aliases}`,
-                //     'cmd',
-                // );
-            }
-        }
-    });
-}
-
-/**
  * LOAD THE slash COMMANDS
  */
 const loadSlash = async function (client) {
@@ -70,6 +48,5 @@ const loadSlash = async function (client) {
 
 module.exports = {
     loadEvents,
-    loadCommands,
     loadSlash
 };

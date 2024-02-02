@@ -14,26 +14,23 @@ module.exports = {
             .setDescription(`Here will list you everyone that is part of our team.`)
             .addFields({
                 name: `Founders:`, 
-                value: `0`
+                value: `2`
             }, {
                 name: `Co-Founders:`, 
-                value: `0`
+                value: `1`
             }, {
                 name: `Community Managers:`, 
-                value: `0`
+                value: `1`
             }, {
                 name: `Head Developers:`, 
-                value: `0`
-            }, {
-                name: `Website Administrators:`, 
-                value: `0`
+                value: `2`
             },
             {
                 name: `Website Moderators:`, 
-                value: `0`
+                value: `3`
             }, {
                 name: `Site Developers:`, 
-                value: `0`
+                value: `2`
             })
             .setColor(client.color)
             .setThumbnail(client.logo)

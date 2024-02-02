@@ -1,18 +1,23 @@
 {
-  "name": "topicmanager",
+  "name": "@topiclist/topicmanager",
   "version": "1.0.0",
   "description": "",
   "main": "topic.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon topic.js",
+    "start": "node topic.js"
   },
-  "author": "",
+  "author": "Ranveer Soni",
   "license": "ISC",
   "dependencies": {
     "@discordjs/builders": "^1.1.0",
     "@discordjs/rest": "^1.0.1",
-    "discord.js": "^14.2.0",
+    "@infinitylist/uptime": "0.1.7-alpha.6",
+    "discord.js": "^14.12.1",
+    "dotenv": "^16.4.1",
     "fs": "^0.0.1-security",
-    "mongoose": "^6.5.1"
+    "mongoose": "^6.5.1",
+    "nodemon": "^2.0.20"
   }
 }

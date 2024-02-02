@@ -5,7 +5,7 @@ const {
 
 module.exports.run = async (client, message, args) => {
     try {
-        let status = `TopicManager || ${client.config.bot.prefix}help`
+        let status = `TopicManager || /help`
         client.user.setActivity(status, {
             type: ActivityType.Watching
         });

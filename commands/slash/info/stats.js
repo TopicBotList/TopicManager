@@ -19,7 +19,7 @@ module.exports = {
             .setTitle('TopicManager - Stats')
             .addFields({
                 name: `Developers:`,
-                value: `Thunder#6666`
+                value: `Ranveer Soni`
             }, {
                 name: `Created On:`,
                 value: `${time(client.user.createdAt, 'R')}`

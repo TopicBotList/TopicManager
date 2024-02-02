@@ -28,7 +28,7 @@ module.exports = {
                 embeds: [notAdmin]
             });
         }
-        let bugsChannel = client.channels.cache.find((c) => c.id === "1007645646200786996");
+        let bugsChannel = client.channels.cache.find((c) => c.id === "1092756515594698772");
         if (!bugsChannel) {
             const notAdmin = new EmbedBuilder()
                 .setDescription(`Invaild bug channel, Please provide the correct channel id.`)
