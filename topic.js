@@ -48,7 +48,7 @@ const eventHandler = require("./functions/handlers");
 eventHandler.loadEvents(client);
 eventHandler.loadSlash(client);
 
-//gclient.login(process.env.devtoken);
+//grclient.login(process.env.devtoken);
 client.login(process.env.DISCORD_TOKEN);
 //temp use only xD
 const app = express()
