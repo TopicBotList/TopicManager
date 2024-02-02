@@ -1,4 +1,5 @@
 require('dotenv').config()
+const express = require('express')
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
 
 const client = new Client({
@@ -49,3 +50,14 @@ eventHandler.loadSlash(client);
 
 //client.login(client.config.client.devtoken);
 client.login(process.env.DISCORD_TOKEN);
+//temp use only xD
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`app listening on port ${port}`)
+})

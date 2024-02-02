@@ -16,6 +16,7 @@
     "@infinitylist/uptime": "0.1.7-alpha.6",
     "discord.js": "^14.12.1",
     "dotenv": "^16.4.1",
+    "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "mongoose": "^6.5.1",
     "nodemon": "^2.0.20"
