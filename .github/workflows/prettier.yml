@@ -14,4 +14,4 @@ jobs:
               uses: creyD/prettier_action@v4.3
               with:
                   prettier_options: --write ./**/*.{js,jsx,ts,tsx}
-                  commit_message: '🥰 chore(ci): Make the code pretty'
+                  commit_message: '🍧 chore(ci): Prettify the code!'
