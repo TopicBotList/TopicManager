@@ -3,7 +3,6 @@ const { EmbedBuilder, ApplicationCommandOptionType } = require("discord.js");
 module.exports = {
   name: "slashinfo",
   description: "Gives you information of a command.",
-  cooldown: "3",
   disabled: false,
   options: [
     {
@@ -27,10 +26,6 @@ module.exports = {
           {
             name: `Permissions:`,
             value: `${cmd.permissions ? `\`${cmd.permissions.join(", ")}\`` : "`None`"}`,
-          },
-          {
-            name: `Cooldowns:`,
-            value: `${cmd.cooldown ? `\`${cmd.cooldown} second(s)\`` : "`No Cooldown`"}`,
           },
           {
             name: `Disabled:`,

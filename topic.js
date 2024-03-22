@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
+const mongoose = require("mongoose");
 
 const client = new Client({
   fetchAllMembers: true,
@@ -60,8 +61,8 @@ eventHandler.loadSlash(client);
   }
 })();
 
-//client.login(process.env.devtoken);
-client.login(process.env.DISCORD_TOKEN);
+client.login(process.env.devtoken);
+//client.login(process.env.DISCORD_TOKEN);
 //temp use only xD
 const app = express();
 const port = 3000;

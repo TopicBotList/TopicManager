@@ -4,7 +4,7 @@ module.exports.run = async (client, message) => {
   try {
     if (message.author.bot) return;
     if (!message.guild) return;
-    var prefix = client.config.bot.prefix;
+    var prefix = client.config.client.prefix;
     const mention = new RegExp(`^<@!?${client.user.id}>( |)$`);
     if (message.content.match(mention)) {
       const embed = new EmbedBuilder()
