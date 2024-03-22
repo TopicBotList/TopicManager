@@ -13,8 +13,8 @@
   "dependencies": {
     "@discordjs/builders": "^1.1.0",
     "@discordjs/rest": "^1.0.1",
-    "@infinitylist/uptime": "0.1.7-alpha.6",
-    "discord.js": "^14.12.1",
+    "@infinitylist/uptime": "^0.1.7-alpha.7",
+    "discord.js": "^14.14.1",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",

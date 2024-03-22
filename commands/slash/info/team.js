@@ -28,7 +28,7 @@ module.exports = {
         },
         {
           name: `Website Moderators:`,
-          value: `3`,
+          value: `2`,
         },
         {
           name: `Site Developers:`,
