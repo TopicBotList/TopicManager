@@ -40,7 +40,7 @@ client.errors = require("./functions/errors");
 
 let date = new Date();
 client.footer = `\u00a9 ${date.getFullYear()} • TopicBotList`;
-client.logo = `https://cdn.topiclist.xyz/images/png/TopicList5.png`;
+client.logo = `https://cdn.topiclist.xyz/images/gif/Topic.gif`;
 client.banner = `https://cdn.topiclist.xyz/images/jpg/banner.png`;
 client.color = `#0000FF`;
 
@@ -48,7 +48,19 @@ const eventHandler = require("./functions/handlers");
 eventHandler.loadEvents(client);
 eventHandler.loadSlash(client);
 
-//grclient.login(process.env.devtoken);
+(async () => {
+  try {
+    mongoose.set('strictQuery', false);
+    await mongoose.connect(process.env.MONGODB_URI, { keepAlive: true });
+    console.log('Connected to DB.');
+
+    eventHandler(client);
+  } catch (error) {
+    console.log(`Error: ${error}`);
+  }
+})();
+
+//client.login(process.env.devtoken);
 client.login(process.env.DISCORD_TOKEN);
 //temp use only xD
 const app = express()
