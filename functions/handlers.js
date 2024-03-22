@@ -3,6 +3,7 @@ const fs = require("fs");
 /**
  * LOAD THE CLIENT EVENTS
  */
+
 const loadEvents = async function (client) {
   const eventFolders = fs.readdirSync("./events");
   for (const folder of eventFolders) {
