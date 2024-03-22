@@ -1,4 +1,10 @@
-const { EmbedBuilder, SelectMenuBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle } = require("discord.js");
+const {
+  EmbedBuilder,
+  SelectMenuBuilder,
+  ButtonBuilder,
+  ActionRowBuilder,
+  ButtonStyle,
+} = require("discord.js");
 const { readdirSync } = require("fs");
 
 module.exports = {
@@ -36,7 +42,9 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setAuthor(`${client.user.username} - Help Menu`)
         .setColor("#7289da")
-        .setDescription("My prefix is `/`. Use the menu to view commands based on their category!");
+        .setDescription(
+          "My prefix is `/`. Use the menu to view commands based on their category!",
+        );
 
       await interaction.reply({
         embeds: [embed],

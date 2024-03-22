@@ -24,7 +24,7 @@ module.exports = {
       partners.forEach((partner) => {
         partnerEmbed.addField(
           partner.title,
-          `[${partner.text}](${partner.link})`
+          `[${partner.text}](${partner.link})`,
         );
       });
 
@@ -33,12 +33,17 @@ module.exports = {
       });
     } catch (error) {
       console.error("Error fetching partners:", error);
-      if (error instanceof TypeError && error.message.startsWith("body used already")) {
+      if (
+        error instanceof TypeError &&
+        error.message.startsWith("body used already")
+      ) {
         console.error("Response body already consumed.");
       } else {
         console.error("API Response:", await response.text());
       }
-      return interaction.reply("Sorry, I couldn't fetch our partners at the moment.");
+      return interaction.reply(
+        "Sorry, I couldn't fetch our partners at the moment.",
+      );
     }
   },
 };

@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const client = new Client({
   fetchAllMembers: true,
