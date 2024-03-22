@@ -1,32 +1,32 @@
-require('dotenv').config()
-const express = require('express')
+require("dotenv").config();
+const express = require("express");
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
 
 const client = new Client({
-    fetchAllMembers: true,
-    allowedMentions: {
-        parse: ["roles", "users", "everyone"],
-        repliedUser: false,
-    },
-    partials: ["MESSAGE", "CHANNEL", "REACTION"],
-    intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMembers,
-        GatewayIntentBits.GuildBans,
-        GatewayIntentBits.GuildEmojisAndStickers,
-        GatewayIntentBits.GuildIntegrations,
-        GatewayIntentBits.GuildWebhooks,
-        GatewayIntentBits.GuildVoiceStates,
-        GatewayIntentBits.GuildPresences,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.GuildMessageReactions,
-        GatewayIntentBits.GuildMessageTyping,
-        GatewayIntentBits.DirectMessages,
-        GatewayIntentBits.DirectMessageReactions,
-        GatewayIntentBits.DirectMessageTyping,
-        GatewayIntentBits.MessageContent,
-        GatewayIntentBits.GuildScheduledEvents,
-    ],
+  fetchAllMembers: true,
+  allowedMentions: {
+    parse: ["roles", "users", "everyone"],
+    repliedUser: false,
+  },
+  partials: ["MESSAGE", "CHANNEL", "REACTION"],
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildBans,
+    GatewayIntentBits.GuildEmojisAndStickers,
+    GatewayIntentBits.GuildIntegrations,
+    GatewayIntentBits.GuildWebhooks,
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.GuildPresences,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildMessageReactions,
+    GatewayIntentBits.GuildMessageTyping,
+    GatewayIntentBits.DirectMessages,
+    GatewayIntentBits.DirectMessageReactions,
+    GatewayIntentBits.DirectMessageTyping,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildScheduledEvents,
+  ],
 });
 
 client.commands = new Collection();
@@ -50,9 +50,9 @@ eventHandler.loadSlash(client);
 
 (async () => {
   try {
-    mongoose.set('strictQuery', false);
+    mongoose.set("strictQuery", false);
     await mongoose.connect(process.env.MONGODB_URI, { keepAlive: true });
-    console.log('Connected to DB.');
+    console.log("Connected to DB.");
 
     eventHandler(client);
   } catch (error) {
@@ -63,13 +63,13 @@ eventHandler.loadSlash(client);
 //client.login(process.env.devtoken);
 client.login(process.env.DISCORD_TOKEN);
 //temp use only xD
-const app = express()
-const port = 3000
+const app = express();
+const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
 app.listen(port, () => {
-  console.log(`app listening on port ${port}`)
-})
+  console.log(`app listening on port ${port}`);
+});
